@@ -28,7 +28,7 @@ async function getInput() {
         errorMessage.innerHTML = "type in a city";
         return
     }
-    let apiVariable = `http://api.openweathermap.org/data/2.5/weather?q=${searchFor}&APPID=e705fd2733337e25a8b91977646312e1&units=${units}`;
+    let apiVariable = `https://api.openweathermap.org/data/2.5/weather?q=${searchFor}&APPID=e705fd2733337e25a8b91977646312e1&units=${units}`;
     const response = await fetch(apiVariable, {mode: 'cors'});
     // check if input is valid
     if (response.status === 400 || response.status === 404){
@@ -59,7 +59,7 @@ async function getInput() {
 
 async function getWeatherData(searchFor, units){
     console.log("location: " + searchFor);
-    let apiVariable = `http://api.openweathermap.org/data/2.5/weather?q=${searchFor}&APPID=e705fd2733337e25a8b91977646312e1&units=${units}`;
+    let apiVariable = `https://api.openweathermap.org/data/2.5/weather?q=${searchFor}&APPID=e705fd2733337e25a8b91977646312e1&units=${units}`;
     const response = await fetch(apiVariable, {mode: 'cors'});
     const tempData = await response.json();
         console.log(tempData);
@@ -68,7 +68,7 @@ async function getWeatherData(searchFor, units){
     _temperature.innerHTML = Math.round(tempData.main.temp); 
     _degree.innerHTML = "°" + deg;
     _forecast.innerHTML = tempData.weather[0].description;
-    _icon.src = `http://openweathermap.org/img/wn/${tempData.weather[0].icon}@2x.png`;
+    _icon.src = `https://openweathermap.org/img/wn/${tempData.weather[0].icon}@2x.png`;
     _feelsLike.innerHTML = Math.round(tempData.main.feels_like) +  "°" + deg;
     _wind.innerHTML = Math.round(tempData.wind.speed) + "mph";
     _humidity.innerHTML = Math.round(tempData.main.humidity) + "%";
@@ -86,7 +86,7 @@ async function getRecentSearches(){
     if(recentSearchArray.length < 2){ _recentSearchHeader.style.display = "none" } else { _recentSearchHeader.style.display = "block" }
     // loop through the recent search array and append an element for each city to the DOM
     for(let i = 1; i < recentSearchArray.length ; i++){
-        let RSapiVariable = `http://api.openweathermap.org/data/2.5/weather?q=${recentSearchArray[i]}&APPID=e705fd2733337e25a8b91977646312e1&units=${units}`;
+        let RSapiVariable = `https://api.openweathermap.org/data/2.5/weather?q=${recentSearchArray[i]}&APPID=e705fd2733337e25a8b91977646312e1&units=${units}`;
         let RSresponse = await fetch(RSapiVariable, {mode: 'cors'});
         const RStempData = await RSresponse.json();
         let RSdiv = document.createElement("div");
@@ -96,7 +96,7 @@ async function getRecentSearches(){
                 RScity.innerHTML = RStempData.name;
             let RSicon = document.createElement("img");
                 RSicon.classList.add("recentSearchimg");
-                RSicon.src = `http://openweathermap.org/img/wn/${RStempData.weather[0].icon}@2x.png`;
+                RSicon.src = `https://openweathermap.org/img/wn/${RStempData.weather[0].icon}@2x.png`;
             let RStemp = document.createElement("span");
                 RStemp.classList.add("recentSearchSpan");
                 RStemp.innerHTML = Math.round(RStempData.main.temp) +  "°" + deg; 
