@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+        <!-- font -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+        <!-- icons -->
+        <script src="https://kit.fontawesome.com/253fb475fb.js" crossorigin="anonymous"></script>
+    <title>Weather App</title>
+</head>
+<body>
+    <div id="searchbar">
+        <form>
+            <input id="search" type="text" placeholder="my weather app">
+            <button id="submit">
+                <i class="fas fa-search" aria-hidden="true"></i>
+            </button>
+        </form>
+    </div>
+    <div id="errorMessage">‎</div>
+    <div id="container">
+        <span id="forecast"></span>
+        <span id="location"></span>
+        <div id="tempContainer">
+            <img id="icon">
+            <div id="metricContainer">
+                <span id="temp"></span>
+                <span id="degree"></span>
+            </div>
+        </div>
+
+        <div id="detailGrid">
+            <!-- feels like -->
+            <div class="detail-cell">
+                <span class="log-cell-stat">feels like:</span>
+            </div>
+            <div class="detail-cell">
+                <span id="feelsLike" class="log-cell-stat"></span>
+            </div>
+            <!-- wind -->
+            <div class="detail-cell">
+                <span class="log-cell-stat">wind speed:</span>
+            </div>
+            <div class="detail-cell">
+                <span id="wind" class="log-cell-stat"></span>
+            </div>
+            <!-- humidity -->
+            <div class="detail-cell">
+                <span class="log-cell-stat">humidity:</span>
+            </div>
+            <div class="detail-cell">
+                <span id="humidity" class="log-cell-stat"></span>
+            </div>
+          </div>
+    </div>
+
+    <span id="RStitle">recent searches</span>
+    <div id="recentSearchContainer">
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
