@@ -73,7 +73,7 @@ body{
 #container{
     display: flex;
     flex-direction: column;
-    margin: 20px auto 60px auto;
+    margin: 20px auto 50px auto;
     padding: 10px;
     border-radius: 10px;
     color: white;
