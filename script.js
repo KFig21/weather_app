@@ -29,7 +29,7 @@ async function getInput() {
         return
     }
     let apiVariable = `https://api.openweathermap.org/data/2.5/weather?q=${searchFor}&APPID=e705fd2733337e25a8b91977646312e1&units=${units}`;
-    const response = await fetch(apiVariable, {mode: 'cors'});
+    const response = await fetch(apiVariable);
     // check if input is valid
     if (response.status === 400 || response.status === 404){
         errorMessage.innerHTML = "can't find a result"
@@ -60,7 +60,7 @@ async function getInput() {
 async function getWeatherData(searchFor, units){
     console.log("location: " + searchFor);
     let apiVariable = `https://api.openweathermap.org/data/2.5/weather?q=${searchFor}&APPID=e705fd2733337e25a8b91977646312e1&units=${units}`;
-    const response = await fetch(apiVariable, {mode: 'cors'});
+    const response = await fetch(apiVariable);
     const tempData = await response.json();
         console.log(tempData);
     // set the DOM
@@ -87,7 +87,7 @@ async function getRecentSearches(){
     // loop through the recent search array and append an element for each city to the DOM
     for(let i = 1; i < recentSearchArray.length ; i++){
         let RSapiVariable = `https://api.openweathermap.org/data/2.5/weather?q=${recentSearchArray[i]}&APPID=e705fd2733337e25a8b91977646312e1&units=${units}`;
-        let RSresponse = await fetch(RSapiVariable, {mode: 'cors'});
+        let RSresponse = await fetch(RSapiVariable);
         const RStempData = await RSresponse.json();
         let RSdiv = document.createElement("div");
             RSdiv.classList.add("recentSearchDiv");
